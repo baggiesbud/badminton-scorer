@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton Scorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏸 Badminton Scorer</h1>
+            <p class="subtitle">Track your game offline</p>
+        </header>
+
+        <div class="game-setup" id="gameSetup">
+            <div class="setup-section">
+                <label for="player1">Player 1 Name:</label>
+                <input type="text" id="player1" placeholder="Enter player 1 name" value="Player 1">
+            </div>
+            <div class="setup-section">
+                <label for="player2">Player 2 Name:</label>
+                <input type="text" id="player2" placeholder="Enter player 2 name" value="Player 2">
+            </div>
+            <div class="setup-section">
+                <label for="winPoints">Points to Win:</label>
+                <select id="winPoints">
+                    <option value="11">11 Points (Best of 1)</option>
+                    <option value="21">21 Points (Standard)</option>
+                    <option value="15">15 Points (Casual)</option>
+                </select>
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Game</button>
+        </div>
+
+        <div class="scoreboard hidden" id="scoreboard">
+            <div class="match-info">
+                <h2 id="matchTitle">Match</h2>
+                <p class="set-info">Set <span id="currentSet">1</span></p>
+            </div>
+
+            <div class="scores-container">
+                <div class="player-score">
+                    <div class="player-name" id="p1Name">Player 1</div>
+                    <div class="score" id="p1Score">0</div>
+                    <div class="controls">
+                        <button id="p1Minus" class="btn btn-score">−</button>
+                        <button id="p1Plus" class="btn btn-score">+</button>
+                    </div>
+                </div>
+
+                <div class="divider">VS</div>
+
+                <div class="player-score">
+                    <div class="player-name" id="p2Name">Player 2</div>
+                    <div class="score" id="p2Score">0</div>
+                    <div class="controls">
+                        <button id="p2Minus" class="btn btn-score">−</button>
+                        <button id="p2Plus" class="btn btn-score">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="serve-indicator">
+                <p>Serve: <span id="serveIndicator" class="serve">Player 1</span></p>
+            </div>
+
+            <div class="game-status" id="gameStatus"></div>
+
+            <div class="actions">
+                <button id="undoBtn" class="btn btn-secondary">↶ Undo</button>
+                <button id="nextSetBtn" class="btn btn-secondary hidden">Next Set</button>
+                <button id="endGameBtn" class="btn btn-danger">End Game</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Rally Count:</span>
+                    <span class="stat-value" id="rallyCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Game Time:</span>
+                    <span class="stat-value" id="gameTime">0:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="match-history hidden" id="matchHistory">
+            <h2>Match Summary</h2>
+            <div class="summary-content" id="summaryContent"></div>
+            <button id="newGameBtn" class="btn btn-primary">New Game</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
